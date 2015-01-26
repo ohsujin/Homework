@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>Freq_TF_IDF</groupId>
-  <artifactId>Freq_TF_IDF</artifactId>
+  <groupId>Frequence_Class</groupId>
+  <artifactId>Frequence_Class</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Freq_TF_IDF</name>
+  <name>Frequence_Class</name>
   <url>http://maven.apache.org</url>
 
 
@@ -51,7 +51,7 @@
                     <archive>
                         <manifest>
                         <!-- 메인이 있는 클래스의 클래스명을 알려준다. -->
-                            <mainClass>Freq_TF_IDF.WordFrequenceInDocument</mainClass>
+                            <mainClass>Frequence_Class.Frequence_Class</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
