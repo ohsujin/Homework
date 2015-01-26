@@ -263,14 +263,39 @@ master에서 다음 명령어를 입력한다.
 
 ```
 입력창이 나오면 [enter]를 누르다가
-
-Define value for property 'groupId': : TF_IDF
-Define value for property 'artifactId': : TF_IDF
+다음 입력값을 요구하면
+Define value for property 'groupId': : Freq_TF_IDF
+Define value for property 'artifactId': : Freq_TF_IDF
 Define value for property 'version': 1.0-SNAPSHOT:[enter]
 Define value for property 'package': TF_IDF:[enter]
 
 위와 같이 입력해줍니다.
 ```
+
+10.maven build하기
+maven프로젝트로 생성된 폴더로 들어가 아래 명령을 수행합니다.
+ > cd ~/Freq_TF_IDF 
+ > rm -rf src/main/java/Freq_TF_IDF/App.java
+ > cp ~/workspace/Homework/TF_IDF/src/WordFrequenceInDocument.java  ./src/main/java/Freq_TF_IDF/
+ > cp ~/workspace/Homework/Freq_TF_IDF_pom.xml ./pom.xml
+ > mvn package
+ 
+ 페키징 과정까지 수행이 완료되면 로컬 git 저장소로 이동하여 분석할 파일을 압축 해제 합니다.
+ > cd workspace/Homework/document
+ > tar xvf bible.tar
+ > tar xvf shakespeare.tar
+
+11.Freq_TF_IDF.jar 파일 hadoop으로 실행 시켜 보기
+hdfs에 input 폴더를 생성하고 분석할 파일을 put 해줍니다.
+> hadoop dfs -mkdir input 
+> hadoop dfs -put ~/workspace/Homework/document/shakespeare input
+> 
+
+
+
+
+ 
+ 
 
 
 
