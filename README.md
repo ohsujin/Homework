@@ -232,6 +232,15 @@ master에서 다음 명령어를 입력한다.
 중간에 
 > "Re-format filesystem in /home/hadoop/hdfs/name ? (Y or N) " 
 
-나오면 Y 를 입력해줍니다.
+이 나오면 Y 를 입력해줍니다. 포맷이 완료된 후에 다음 명령어를 입력하여 hadoop을 실행합니다.
+> start-all.sh
 
+실행중에 
+> Are you sure you want to continue connecting (yes/no)?
 
+이라는 신호가 나오면 yes를 입력 해줍니다.
+
+7.hadoop 실행확인
+
+아래 명령어를 입력하여 master에 jobtracker, secondarynamenode,namenode가 실행중인지 확인하고 slave1,2 에는 TaskTracker,DataNode가 실행중인지 확인해줍니다.
+> jps 
