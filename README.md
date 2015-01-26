@@ -249,7 +249,8 @@ master에서 다음 명령어를 입력한다.
 
 과제를 수행할 폴더를 만들고 원격 저장소를 복사해줍니다.
 ```
-> mkdir 
-
+> mkdir workspace
+> cd workspace
+> 
 ```
 > 
