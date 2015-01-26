@@ -275,9 +275,10 @@ Define value for property 'package': TF_IDF:[enter]
 10.Freq_TF_IDF.java maven build하기
 maven프로젝트로 생성된 폴더로 들어가 아래 명령을 수행합니다.
  > cd ~/Freq_TF_IDF 
+ 
  > rm -rf src/main/java/Freq_TF_IDF/App.java
  
- > cp ~/workspace/Homework/TF_IDF/src/WordFrequenceInDocument.java  ./src/main/java/Freq_TF_IDF/
+ > cp ~/workspace/Homework/TF_IDF/src/WordFrequenceInDocument.java ./src/main/java/Freq_TF_IDF/
  
  > cp ~/workspace/Homework/Freq_TF_IDF_pom.xml ./pom.xml
  
