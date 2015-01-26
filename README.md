@@ -244,3 +244,12 @@ master에서 다음 명령어를 입력한다.
 
 아래 명령어를 입력하여 master에 jobtracker, secondarynamenode,namenode가 실행중인지 확인하고 slave1,2 에는 TaskTracker,DataNode가 실행중인지 확인해줍니다.
 > jps 
+
+8.git 저장소 복사
+
+과제를 수행할 폴더를 만들고 원격 저장소를 복사해줍니다.
+```
+> mkdir 
+
+```
+> 
