@@ -2,13 +2,13 @@
 
 ##vagrant 설정
 
-1.Vagrnat box 추가
+#### 1.Vagrnat box 추가
 
  프로젝트 폴더를 만들고 해당 폴더에 들어가 다음 명령어를 입력한다.
 ```
 > vagrant box add ubuntu/trusty64
 ```
-2.가상 머신 생성하기 
+#### 2.가상 머신 생성하기 
 다음명령어로 box명을 확인한다.
 아래 명령어를 입력하면 " ubuntu/trusty64 (virtualbox, 14.04) " 라고 나오는데 앞에  ubuntu/trusty64 이부분이 박스명이다.
 ```
@@ -19,7 +19,7 @@
 > vagrant init  ubuntu/trusty64 [자신의 box이름]
 ```
 
-3.vagrantfile 설정하기
+#### 3.vagrantfile 설정하기
  
  위에서 vagrant init 명령어로 생성된 vagrantfile 파일을 다음과 같이 수정한다.
 ```
@@ -82,7 +82,7 @@ Vagrant.configure(2) do |config|
 end
 ```
 
-4.shell.sh 파일 만들기
+#### 4.shell.sh 파일 만들기
  
 vagrantfile이 생성된 프로젝트 폴더에 들어가 아래 내용을 shell.sh 라는 이름으로 저장해 줍니다.
 ```
@@ -135,7 +135,7 @@ echo "export HADOOP_HOME=$HH" >> /home/hadoop/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin:\$HADOOP_HOME/bin" >> ~hadoop/.bashrc
 ```
 
-5.ssh 접속.
+#### 5.ssh 접속.
 
 127.0.0.1:2222, 2200, 2201 각 포트 별로 접속을 시도합니다.
 
@@ -225,7 +225,7 @@ chmod 755 -R /home/hadoop/hdfs
 
 slave1 , slave2의 홈 디렉토리에 hdfs 폴더가 생긴것을 확인한다.
 
-6.namenode 초기화 & hadoop start
+#### 6.namenode 초기화 & hadoop start
 master에서 다음 명령어를 입력한다.
 > hadoop namenode -format
 
@@ -240,12 +240,12 @@ master에서 다음 명령어를 입력한다.
 
 이라는 신호가 나오면 yes를 입력 해줍니다.
 
-7.hadoop 실행확인
+#### 7.hadoop 실행확인
 
 아래 명령어를 입력하여 master에 jobtracker, secondarynamenode,namenode가 실행중인지 확인하고 slave1,2 에는 TaskTracker,DataNode가 실행중인지 확인해줍니다.
 > jps 
 
-8.git 저장소 복사
+#### 8.git 저장소 복사
 
 과제를 수행할 폴더를 만들고 원격 저장소를 복사해줍니다.
 ```
@@ -257,7 +257,7 @@ master에서 다음 명령어를 입력한다.
 
 명령어를 입력하여 clone이 잘 됬는지 확인을 해줍니다.
 
-9.maven 프로젝트 생성
+#### 9.maven 프로젝트 생성
 홈 디렉토리로 들어가 아래 명령어를 입력합니다.
 > mvn archetype:generate
 
@@ -272,7 +272,7 @@ Define value for property 'package': TF_IDF:[enter]
 위와 같이 입력해줍니다.
 ```
 
-10.Freq_TF_IDF.java maven build하기
+#### 10.Freq_TF_IDF.java maven build하기
 maven프로젝트로 생성된 폴더로 들어가 아래 명령을 수행합니다.
  > cd ~/Freq_TF_IDF 
  
@@ -291,7 +291,7 @@ maven프로젝트로 생성된 폴더로 들어가 아래 명령을 수행합니
  
  > tar xvf shakespeare.tar
 
-11.Freq_TF_IDF.jar 파일 hadoop으로 실행 시켜 보기
+#### 11.Freq_TF_IDF.jar 파일 hadoop으로 실행 시켜 보기
 hdfs에 input 폴더를 생성하고 분석할 파일을 put 해줍니다.
 > hadoop dfs -mkdir input 
 
