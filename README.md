@@ -251,6 +251,26 @@ master에서 다음 명령어를 입력한다.
 ```
 > mkdir workspace
 > cd workspace
-> 
+> git clone https://github.com/ohsujin/Homework.git
 ```
-> 
+> ls -l
+
+명령어를 입력하여 clone이 잘 됬는지 확인을 해줍니다.
+
+9.maven 프로젝트 생성
+홈 디렉토리로 들어가 아래 명령어를 입력합니다.
+> mvn archetype:generate
+
+```
+입력창이 나오면 [enter]를 누르다가
+
+Define value for property 'groupId': : TF_IDF
+Define value for property 'artifactId': : TF_IDF
+Define value for property 'version': 1.0-SNAPSHOT:[enter]
+Define value for property 'package': TF_IDF:[enter]
+
+위와 같이 입력해줍니다.
+```
+
+
+
