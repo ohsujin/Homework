@@ -1,147 +1,21 @@
 # 실습과제
 
-##vagrant 설정
+##git으로 부터 clone 받기.
+###1.git으로 부터 프로젝트를 다운로드 받습니다.
+> git clone https://github.com/ohsujin/Homework.git
+> cd ./Homework
 
-#### 1.Vagrnat box 추가
 
- 프로젝트 폴더를 만들고 해당 폴더에 들어가 다음 명령어를 입력한다.
+##vagrant up 하기
+git에서 다운로드 받은 Homework폴더에 있는 vagrantfile을 이용하여 vagrant를 up시킨다.
+> vagrant up
+
+
+##ssh 접속.
+vagrant로 띄운 가상리눅스에 접속하여 작업을 수행한다.
 ```
-> vagrant box add ubuntu/trusty64
+ssh 를 이용하여 ip : 127.0.0.1  | port : 2222( or 2200,2201) 으로 접속하여 master node를 찾습니다.
 ```
-#### 2.가상 머신 생성하기 
-다음명령어로 box명을 확인한다.
-아래 명령어를 입력하면 " ubuntu/trusty64 (virtualbox, 14.04) " 라고 나오는데 앞에  ubuntu/trusty64 이부분이 박스명이다.
-```
-> vagrant box lis
-```
-박스명을 확인한뒤 다음 명령어를 입력한다.
-```
-> vagrant init  ubuntu/trusty64 [자신의 box이름]
-```
-
-#### 3.vagrantfile 설정하기
- 
- 위에서 vagrant init 명령어로 생성된 vagrantfile 파일을 다음과 같이 수정한다.
-```
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
-Vagrant.configure(2) do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
-
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
- 
- # master node
-  config.vm.define "master" do |master|
-    master.vm.provider "virtualbox" do |v|
-      v.name = "master"
-      v.memory = 4096
-      v.cpus = 1
-    end
-    master.vm.box = "ubuntu/trusty64"
-    master.vm.hostname = "master"
-    master.vm.network "private_network", ip: "192.168.200.2"
-    master.vm.network "public_network"
-    master.vm.provision "shell", path: "./setup.sh"
-  end
-
-  # slave1 node
-  config.vm.define "slave1" do |slave1|
-    slave1.vm.provider "virtualbox" do |v|
-      v.name = "slave1"
-      v.memory = 2048
-      v.cpus = 1
-    end
-    slave1.vm.box = "ubuntu/trusty64"
-    slave1.vm.hostname = "slave1"
-    slave1.vm.network "private_network", ip: "192.168.200.100"
-    slave1.vm.network "public_network"
-    slave1.vm.provision "shell", path: "./setup.sh"
-  end
-
-  config.vm.define "slave2" do |slave2|
-    slave2.vm.provider "virtualbox" do |v|
-      v.name = "slave2"
-      v.memory = 2048
-      v.cpus = 1
-    end
-    slave2.vm.box = "ubuntu/trusty64"
-    slave2.vm.hostname = "slave2"
-    slave2.vm.network "private_network", ip: "192.168.200.101"
-    slave2.vm.network "public_network"
-    slave2.vm.provision "shell", path: "./setup.sh"
-  end
-  
-end
-```
-
-#### 4.shell.sh 파일 만들기
- 
-vagrantfile이 생성된 프로젝트 폴더에 들어가 아래 내용을 shell.sh 라는 이름으로 저장해 줍니다.
-```
-#!/bin/bash
-
-# Variables
-tools=/home/hadoop/tools
-JH=/home/hadoop/tools/jdk
-HH=/home/hadoop/tools/hadoop
-
-
-####### root user 실행 #######
-# Install jdk
-apt-get install -y openjdk-7-jre-headless
-apt-get install -y openjdk-7-jdk
-apt-get install -y expect
-apt-get install -y git
-apt-get install -y maven2
-
-# Add group and user
-addgroup hadoop
-useradd -g hadoop -d /home/hadoop/ -s /bin/bash -m hadoop
-expect <<EOF
-spawn passwd hadoop
-expect "Enter new UNIX password:"
-        send "hadoop\r"
-expect "Retype new UNIX password:"
-        send "hadoop\r"
-expect eof
-EOF
-
-# Setting Hosts
-echo -e "192.168.200.2 master\n192.168.200.100 slave1\n192.168.200.101 slave2" > /etc/hosts
-
-whoami
-mkdir $tools
-cd $tools
-
-wget http://ftp.daum.net/apache//hadoop/common/hadoop-1.2.1/hadoop-1.2.1.tar.gz
-tar xvf hadoop-1.2.1.tar.gz
-ln -s $tools/hadoop-1.2.1 $tools/hadoop
-ln -s /usr/lib/jvm/java-1.7.0-openjdk-amd64 $tools/jdk
-
-chown -R hadoop:hadoop /home/hadoop
-
-# Setting environment
-echo "" >> ~hadoop/.bashrc
-echo "export JAVA_HOME=$JH" >> ~hadoop/.bashrc
-echo "export HADOOP_HOME=$HH" >> /home/hadoop/.bashrc
-echo "export PATH=\$PATH:\$JAVA_HOME/bin:\$HADOOP_HOME/bin" >> ~hadoop/.bashrc
-```
-
-#### 5.ssh 접속.
-
-127.0.0.1:2222, 2200, 2201 각 포트 별로 접속을 시도합니다.
-
-id : vagrant
-
-pw : vagrant
 
 master, slave1,2에 접속한뒤 > su 명령어를 입력하여 root 계정으로 접근합니다.
 
@@ -264,8 +138,8 @@ master에서 다음 명령어를 입력한다.
 ```
 입력창이 나오면 [enter]를 누르다가
 다음 입력값을 요구하면
-Define value for property 'groupId': : Freq_TF_IDF
-Define value for property 'artifactId': : Freq_TF_IDF
+Define value for property 'groupId': : Frequence_Class
+Define value for property 'artifactId': : Frequence_Class
 Define value for property 'version': 1.0-SNAPSHOT:[enter]
 Define value for property 'package': TF_IDF:[enter]
 
@@ -274,15 +148,19 @@ Define value for property 'package': TF_IDF:[enter]
 
 #### 10.Freq_TF_IDF.java maven build하기
 maven프로젝트로 생성된 폴더로 들어가 아래 명령을 수행합니다.
- > cd ~/Freq_TF_IDF 
+ > cd ~/Frequence_Class 
  
- > rm -rf src/main/java/Freq_TF_IDF/App.java
+ > rm -rf src/main/java/Frequence_Class/App.java
  
- > cp ~/workspace/Homework/TF_IDF/src/WordFrequenceInDocument.java ./src/main/java/Freq_TF_IDF/
+ > cp ~/workspace/Homework/TF_IDF/src/WordFrequenceInDocument.java ./src/main/java/Frequence_Class/
  
  > cp ~/workspace/Homework/Freq_TF_IDF_pom.xml ./pom.xml
  
  > mvn package
+ 
+```
+Frequence_Class/target
+```
  
  페키징 과정까지 수행이 완료되면 로컬 git 저장소로 이동하여 분석할 파일을 압축 해제 합니다.
  > cd workspace/Homework/document
