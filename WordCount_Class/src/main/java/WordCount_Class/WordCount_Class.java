@@ -3,7 +3,6 @@ package WordCount_Class;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -43,8 +42,9 @@ public class WordCount_Class extends Configured implements Tool {
         job.setMapperClass(WordCount_Mapper.class);
         job.setReducerClass(WordCount_Reducer.class);
 
+//        job.setMapOutputValueClass();  //출력 형식을 바꿔주는 또 다른 방법
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
 
         FileInputFormat.addInputPath(job, new Path(strings[0]));
         FileOutputFormat.setOutputPath(job, new Path(strings[1]));
@@ -78,7 +78,7 @@ public class WordCount_Class extends Configured implements Tool {
                 String DOC_Name = DOC_Name_tf[0];
                 String tf_value = DOC_Name_tf[1];
 
-                count.put(new Text(key.toString()+" "+DOC_Name_tf),tf_value);
+                count.put(new Text(key.toString()+" "+DOC_Name),tf_value);
                 total ++;
             }
 
@@ -91,3 +91,4 @@ public class WordCount_Class extends Configured implements Tool {
     }
 
 }
+

@@ -1,5 +1,4 @@
-package osj.freq;
-
+package Frequence_Class;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
