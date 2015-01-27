@@ -3,6 +3,7 @@
 ##git으로 부터 clone 받기.
 git으로 부터 프로젝트를 다운로드 받습니다.
 > git clone https://github.com/ohsujin/Homework.git
+
 > cd ./Homework
 
 ##vagrant up 하기
@@ -29,10 +30,10 @@ git으로 부터 프로젝트를 다운로드 받습니다.
 
 > cd ./Homework
 
-##master에서 git으로부터 clone한 Homework 및에있는 "hadoop_shell.sh" 파일을 실행 합니다.
+##master에서 git으로부터 clone한 Homework 폴더 하위에 있는 "hadoop_shell.sh" 파일을 실행 합니다.
 > sh hadoop_shell.sh 
 
-마찬가지로 slave1 과 slave2의 hadoop 유저로 접속하여 $홈 디렉토리로 들어가 다음 명령어를 입력합니다.
+마찬가지로 slave1 과 slave2의 hadoop 유저로 접속하여 $홈 디렉토리로 들어가 다음 명령어를 입력합니다.(만약 비밀번호를 입력하라고 나오면 hadoop 을 입력하면 됩니다.)
 > ssh hadoop@slave1 
 
 > sh hadoop_shell.sh
@@ -65,18 +66,14 @@ master에서 다음 명령어를 입력합니다.
 
 ##document 파일을 hdfs로 업로드 하기.
 
-Homework 폴더에 있는 documet폴더로 들어가 shakespeare.tar , bible.tar 파일을 압축해제한뒤 hdfs에 업로드합니다.
+Homework 폴더에 있는 documet폴더로 들어가 shakespeare.tar 파일을 압축해제한뒤 hdfs에 업로드합니다.
 > cd ~/Homework/
 
 > cd document/
 
 > tar xvf shakespeare.tar 
 
-> bible.tar
-
 > hadoop dfs -mkdir document
-
-> hadoop dfs -put bible document
 
 > hadoop dfs -put shakespeare document
 
@@ -85,6 +82,7 @@ Homework 폴더에 있는 documet폴더로 들어가 shakespeare.tar , bible.tar
 Homework 폴더에 있는 TFIDF_Project 폴더로 이동하여 maven package를 실행 합니다.
 
 > cd ~/Homework/TFIDF_Project/
+
 > mvn package
 
 위 명령을 실행하고나면 target 폴더가 생깁니다.
