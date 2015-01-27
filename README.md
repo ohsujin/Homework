@@ -94,13 +94,13 @@ Homework 폴더에 있는 TFIDF_Project 폴더로 이동하여 maven package를 
 hdfs에 업로드한 shakespeare의 자료를 TF-IDF 알고리즘을로 분석을 해보도록 합니다. 
 > cd ~/Homework/TFIDF_Project/target
 
-1.단어의 빈출 빈도를 구하기 위해 Frequence_class 를 먼저 실행해준다.
+1.각단어가 문서마다 어느빈도로 발견되는지 확인하기 위해 Frequence_Class를 가장먼저 실행해준다.
 > hadoop jar TFIDF_Project-1.0-SNAPSHOT-jar-with-dependencies.jar TFIDF_Project.Frequence_Class document/shakespeare Freq_output
 
-2.
+2.Frequence Class에서 추출한 단어가 각 문서마다 몇번이나 나오는지 파악하기 위해 WordCount_Class를 수행한다.
 > hadoop jar TFIDF_Project-1.0-SNAPSHOT-jar-with-dependencies.jar TFIDF_Project.WordCount_Class Freq_output Wordcount_output
  
-3.
+3.WordCount Class에서 얻은 결과로 TF-IDF 값을 구한다.
 > hadoop jar TFIDF_Project-1.0-SNAPSHOT-jar-with-dependencies.jar TFIDF_Project.TF_IDF_Class Wordcount_output TFIDF_output
  
 ##최종 결과 확인
