@@ -1,15 +1,15 @@
 # 실습과제
 
-##git으로 부터 clone 받기.
-###1.git으로 부터 프로젝트를 다운로드 받습니다.
+###git으로 부터 clone 받기.
+git으로 부터 프로젝트를 다운로드 받습니다.
 > git clone https://github.com/ohsujin/Homework.git
 > cd ./Homework
 
-##vagrant up 하기
+###vagrant up 하기
 git에서 다운로드 받은 Homework폴더에 있는 vagrantfile을 이용하여 vagrant를 up시킨다.
 > vagrant up
 
-##master node로 접속.
+###master node로 접속.
 vagrant로 띄운 가상리눅스에 접속하여 작업을 수행한다.
 ```
 ssh 를 이용하여 ip : 127.0.0.1  | port : 2222( or 2200,2201) 으로 접속하여 master node를 찾습니다.
