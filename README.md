@@ -34,11 +34,11 @@ git으로 부터 프로젝트를 다운로드 받습니다.
 > sh hadoop_shell.sh 
 
 마찬가지로 slave1 과 slave2의 hadoop 유저로 접속하여 $홈 디렉토리로 들어가 다음 명령어를 입력합니다.(만약 비밀번호를 입력하라고 나오면 hadoop 을 입력하면 됩니다.)
-> ssh hadoop@slave1 
+> ssh hadoop@slave1  (master에서 실행)
 
 > sh hadoop_shell.sh
 
-> ssh hadoop@slave2
+> ssh hadoop@slave2  (master에서 실행)
 
 > sh hadoop_shell.sh
 
