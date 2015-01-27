@@ -2,7 +2,7 @@
 
 # Variables
 JAVA=/home/hadoop/tools/jdk
-HADOOP=/home/hadoop/tools/hadoop
+HD_Home=/home/hadoop/tools/hadoop
 tools=/home/hadoop/tools
 
 ####### root user 실행 #######
@@ -48,7 +48,7 @@ chown -R hadoop:hadoop /home/hadoop
 # Setting environment
 echo "" >> ~hadoop/.bashrc
 echo "export JAVA_HOME=$JAVA" >> /home/hadoop/.bashrc
-echo "export HADOOP_HOME=$HADOOP" >> /home/hadoop/.bashrc
+echo "export HADOOP_HOME=$HD_Home" >> /home/hadoop/.bashrc
 echo "export MVN_HOME=$tools/maven" >> /home/hadoop/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin:\$HADOOP_HOME/bin:\$MVN_HOME/bin" >> /home/hadoop/.bashrc
 

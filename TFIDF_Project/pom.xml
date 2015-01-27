@@ -2,20 +2,19 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>TF_IDF_Class</groupId>
-  <artifactId>TF_IDF_Class</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>TFIDF_Project</groupId>
+  <artifactId>TFIDF_Project</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>TF_IDF_Class</name>
+  <name>TFIDF_Project</name>
   <url>http://maven.apache.org</url>
-
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-    <dependencies>
+      
+  <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -48,12 +47,6 @@
                     <!-- package로 assemply가 될 때 jar파일을 생성할 때 jar파일에 같이 붙이는 이름  -->
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <archive>
-                        <manifest>
-                        <!-- 메인이 있는 클래스의 클래스명을 알려준다. -->
-                            <mainClass>TF_IDF_Class.TF_IDF_Class</mainClass>
-                        </manifest>
-                    </archive>
                 </configuration>
                 <executions>
                     <execution>

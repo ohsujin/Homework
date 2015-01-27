@@ -49,8 +49,8 @@ echo "export HADOOP_OPTS=-server" >> /home/hadoop/tools/hadoop/conf/hadoop-env.s
 rsync -av /home/hadoop/tools/hadoop/conf slave1:/home/hadoop/tools/hadoop
 rsync -av /home/hadoop/tools/hadoop/conf slave2:/home/hadoop/tools/hadoop
 
-rsync -av /home/hadoop/hadoop_shell.sh slave1:/home/hadoop
-rsync -av /home/hadoop/hadoop_shell.sh slave2:/home/hadoop
+rsync -av ./hadoop_shell.sh slave1:/home/hadoop
+rsync -av ./hadoop_shell.sh slave2:/home/hadoop
 
 
 else

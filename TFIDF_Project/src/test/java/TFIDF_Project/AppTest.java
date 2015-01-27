@@ -1,4 +1,4 @@
-package Frequence_Class;
+package TFIDF_Project;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

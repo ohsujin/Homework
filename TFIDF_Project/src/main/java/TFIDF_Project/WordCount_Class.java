@@ -1,4 +1,4 @@
-package WordCount_Class;
+package TFIDF_Project;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -24,11 +24,18 @@ public class WordCount_Class extends Configured implements Tool {
 
     public static void main(String[] args) throws Exception {
 
-        if(args.length != 2){
-            System.out.println("check input/output directory!!!");
-            System.exit(-1);
+	try {
+            System.out.println("Input directory is ["+args[0]+"]");
+        }catch (Exception e) {
+            System.err.println("input directory Error!!");
         }
 
+        try {
+            System.out.println("Output directory is ["+args[1]+"]");
+        }catch (Exception e) {
+            System.err.println("Output directory Error!!");
+        }
+	
         int run = ToolRunner.run(new Configuration(), new WordCount_Class(), args);
         System.exit(run);
     }
